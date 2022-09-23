@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show()
                 }
             }
+
         }.launch(
             AuthUI.getInstance().createSignInIntentBuilder().setAvailableProviders(providers)
                 .build()
