@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "649856762367",
+    "firebase_url": "https://kotlin-firebase-9067f-default-rtdb.firebaseio.com",
+    "project_id": "kotlin-firebase-9067f",
+    "storage_bucket": "kotlin-firebase-9067f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649856762367:android:1595c89e5ae05bb354a7ca",
+        "android_client_info": {
+          "package_name": "com.asalcedo.hellofirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649856762367-e40us613r2r8cd9janhuhs5asm0drr99.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtEQgyYpHGtjHKBK5yCv-K9ojcOEdp46c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649856762367-e40us613r2r8cd9janhuhs5asm0drr99.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649856762367:android:1676893228164c1a54a7ca",
+        "android_client_info": {
+          "package_name": "com.asalcedo.nilopartner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "649856762367-e40us613r2r8cd9janhuhs5asm0drr99.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtEQgyYpHGtjHKBK5yCv-K9ojcOEdp46c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "649856762367-e40us613r2r8cd9janhuhs5asm0drr99.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
