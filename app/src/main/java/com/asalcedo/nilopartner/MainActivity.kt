@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.asalcedo.nilopartner.databinding.ActivityMainBinding
 import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
 
@@ -29,6 +30,14 @@ class MainActivity : AppCompatActivity() {
                 if (response == null) {
                     Toast.makeText(this, "Good bye", Toast.LENGTH_SHORT).show()
                     finish() //Finalize the activity
+                } else {
+                    response.error?.let {
+                        if (it.errorCode == ErrorCodes.NO_NETWORK) {
+                            Toast.makeText(this, "No network", Toast.LENGTH_SHORT).show()
+                        } else {
+                            Toast.makeText(this, "Error code: ${it.errorCode}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
             }
 
@@ -51,6 +60,7 @@ class MainActivity : AppCompatActivity() {
             if (auth.currentUser != null) { // Authenticated user
                 supportActionBar?.title = auth.currentUser?.displayName
                 binding.tvInit.visibility = View.VISIBLE
+                binding.llProgress.visibility = View.GONE
             } else {
                 val providers = arrayListOf(
                     AuthUI.IdpConfig.EmailBuilder().build(),
@@ -58,8 +68,10 @@ class MainActivity : AppCompatActivity() {
                 )
 
                 resultLauncher.launch(
-                    AuthUI.getInstance().createSignInIntentBuilder()
+                    AuthUI.getInstance()
+                        .createSignInIntentBuilder()
                         .setAvailableProviders(providers)
+                        .setIsSmartLockEnabled(false)
                         .build()
                 )
             }
@@ -92,8 +104,13 @@ class MainActivity : AppCompatActivity() {
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             binding.tvInit.visibility = View.GONE
+                            binding.llProgress.visibility = View.VISIBLE
                         } else {
-                            Toast.makeText(this, "It is not possible to close the session", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "It is not possible to close the session",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
             }
