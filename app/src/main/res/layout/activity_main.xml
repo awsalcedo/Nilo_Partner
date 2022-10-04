@@ -6,19 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvInit"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsvProducts"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/purple_200"
-        android:gravity="center"
-        android:text="Hello World!"
-        android:textColor="@color/white"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProducts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/item_product"/>
+
+    </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
         android:id="@+id/llProgress"
@@ -38,7 +42,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Preparing everything"/>
+            android:text="@string/product_msg_loading"/>
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/efab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/product_create"
+        app:icon="@drawable/ic_add_circle_outline"
+        android:layout_marginEnd="@dimen/common_padding_default"
+        android:layout_marginBottom="@dimen/common_padding_default"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
